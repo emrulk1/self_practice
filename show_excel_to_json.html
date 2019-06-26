@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Excel to JSON Demo</title>
+	   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <!--<script src="xlsx.full.min.js"></script>  -->
+</head>
+
+<body>
+    <script type="text/javascript">
+    var spreadsheetId = "1ode30QWZDbJCcVLGMRvZCWL5CXnySFCMO4qv_QDhkgk";
+    var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSe5cYBk7yOuz9XayWHLqjS_mcfp8l8XfuXBdoQa8y5AKuaNlKE2YZcIyX3lD7CqxO6crEICOXJIKBZ/pubhtml";
+    //console.log(public_spreadsheet_url);
+    window.onload = function() { init() };
+    function init() {
+    Tabletop.init( { key: public_spreadsheet_url,
+                     callback: showInfo,
+                     simpleSheet: true } )
+    }
+    function showInfo(data, tabletop) {
+      alert("Successfully processed!")
+      console.log(data);
+    }
+    //window.addEventListener('DOMContentLoaded', init)*/
+    var spreadsheetId = "1Xmj6dZiqT9GHKTjcEJmbQKqUOR06ZLA9NjwravlxYn8",
+    url = "https://spreadsheets.google.com/feeds/list/" +
+          spreadsheetId +
+          "/od6/public/basic?alt=json";
+
+    $.get({
+      url: url,
+      success: function(response) {
+        console.log(response);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
